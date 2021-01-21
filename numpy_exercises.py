@@ -40,10 +40,8 @@ x
 
 #7) Calculate the z-score for each data point. Recall that the z-score is given by:
 a = np.array([4, 10, 12, 23, -2, -1, 0, 0, 0, -6, 3, -7])
-m = a-a.mean()
-s = a.std()
-a = a-a.mean()/a.std()
-a
+z = ( a -a.mean()) / a.std()
+z
 
 #8) 
 import numpy as np
@@ -66,7 +64,7 @@ max_of_a = max(a)
 mean_of_a = a.mean()
 
 # Exercise 5 - Make a variable named product_of_a to hold the product of multiplying all the numbers in the above list together
-product_of_a = a.product()
+product_of_a = a.prod() 
 product_of_a
 
 # Exercise 6 - Make a variable named squares_of_a. It should hold each number in a squared like [1, 4, 9, 16, 25...]
@@ -133,59 +131,145 @@ b.shape
 np.transpose(b)
 
 # Exercise 11 - reshape the array b to be a single list of 6 numbers. (1 x 6)
-b = np.reshape(1, 6)
+b = b.flatten()
 b
 # Exercise 12 - reshape the array b to be a list of 6 lists, each containing only 1 number (6 x 1)
-b = np.reshape(6, 1)
+b = np.array ([
+    [3, 4, 5],
+    [6, 7, 8]]).reshape(6,1)
 b
 ## Setup 3
-c = [
+c = np.array([
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
-]
+])
 
 # HINT, you'll first need to make sure that the "c" variable is a numpy array prior to using numpy array methods.
 # Exercise 1 - Find the min, max, sum, and product of c.
-
+c = c.min(), c.max(), c.sum(), c.prod()
+c
 # Exercise 2 - Determine the standard deviation of c.
-
+c = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+c = c.std()
+c
 # Exercise 3 - Determine the variance of c.
-
+c = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+c = c.var()
+c
 # Exercise 4 - Print out the shape of the array c
+c = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
 
+c.shape
 # Exercise 5 - Transpose c and print out transposed result.
-
+c = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+c = c.transpose()
+c
 # Exercise 6 - Get the dot product of the array c with c. 
-
+c = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+np.dot(c,c)
 # Exercise 7 - Write the code necessary to sum up the result of c times c transposed. Answer should be 261
+c = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
+c1 = c.transpose()
+
+p = c * c1
+
+s = p.sum()
+
+s
 
 # Exercise 8 - Write the code necessary to determine the product of c times c transposed. Answer should be 131681894400.
+c = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
 
+c1 = c.transpose()
+
+p = c * c1
+
+p = p.prod()
+
+p
 
 ## Setup 4
-d = [
+d = np.array([
     [90, 30, 45, 0, 120, 180],
     [45, -90, -30, 270, 90, 0],
     [60, 45, -45, 90, -45, 180]
-]
+])
 
 # Exercise 1 - Find the sine of all the numbers in d
+sine = np.sin(d)
+sine
 
 # Exercise 2 - Find the cosine of all the numbers in d
+cosine = np.cos(d)
+cosine
 
 # Exercise 3 - Find the tangent of all the numbers in d
-
+tangent = np.tan(d)
+tangent
 # Exercise 4 - Find all the negative numbers in d
+d = d[d < 0]
+d
 
 # Exercise 5 - Find all the positive numbers in d
+d = d[d >=0]
+d
 
 # Exercise 6 - Return an array of only the unique numbers in d.
+unique = np.unique(d)
+unique
 
 # Exercise 7 - Determine how many unique numbers there are in d.
+unique = np.unique(d)
+len(unique)
 
 # Exercise 8 - Print out the shape of d.
+d.shape
 
 # Exercise 9 - Transpose and then print out the shape of d.
+d = d.transpose()
+d.shape
 
 # Exercise 10 - Reshape d into an array of 9 x 2
+d = np.array([
+    [90, 30, 45, 0, 120, 180],
+    [45, -90, -30, 270, 90, 0],
+    [60, 45, -45, 90, -45, 180]
+]).reshape(9,2)
+
+d
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Bonus
+#Awesome Bonus For much more practice with numpy, 
+# Go to https://github.com/rougier/numpy-100 and click the "Fork" icon in the upper-right of the screen to fork the repo. 
+# This makes a copy of the repo onto your own account. 
+# Next, clone your fork https://github.com/your-username/numpy-100 down to your machine. 
+# Work through, add, commit, and push your solutions to your own repo.
